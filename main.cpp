@@ -5,14 +5,13 @@
 using namespace std;
 
 int main(/*int argc, char* argv[]*/) {
-	typedef vector<pair<double, double> > CoordList;
-	typedef vector <vector<double> > AdjMatrix;
+
 
 	char c = 0;
 	int mode = 0, lineC = 0, lineI = 0;
 	double aa = 0, bb = 0;
 	char line[1024]; // 1024 ist statisch
-	
+
 	string filename;
 	char* argv[3] = { nullptr, nullptr, nullptr }; // substitude
 	CoordList jimmy;	// jimmy gotta dig big.
@@ -32,11 +31,11 @@ int main(/*int argc, char* argv[]*/) {
 			break;
 		}
 	}
+
 	ifstream file(filename);
 
 	while (file) {
 		file.getline(line, 255);
-		//cout << line << endl;
 		istringstream lineS(line);
 		if (lineC == 0) {
 			lineS >> lineC;
@@ -65,23 +64,15 @@ int main(/*int argc, char* argv[]*/) {
 		}
 		cout << endl;
 	}
-		//for i
-			//for j
-				//field[i][j].push_back(dist);
+	switch (mode) {
+	case 1:
+		enumeration(lineC, field, jimmy);
+		break;
+	case 2:
+		break;
+	}
 
-	/*
-	int a = 1.0, b = 2.0;
-	double e = 4.5, d = 1.7;
-	
-	pair<pair<double, double>, double> trupel;
-	trupel = make_pair(coord, 3.5);
 
-	
-		//vector <vector <pair<pair<double,double>, double> > > franklin;
-		AdjMatrix franklin(5, vector<pair<pair<double, double>, double>>(5, trupel));
-		
-		pair<pair<double, double>, double> trupel2 = make_pair(make_pair(b,e), d);
-		franklin[a][b] = trupel2;
-		*/
+
 	return 0;
 }
