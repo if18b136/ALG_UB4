@@ -5,7 +5,7 @@
 using namespace std;
 
 int main(/*int argc, char* argv[]*/) {
-
+	srand(time(0));
 
 	char c = 0;
 	int mode = 0, lineC = 0, lineI = 0;
@@ -66,9 +66,10 @@ int main(/*int argc, char* argv[]*/) {
 	}
 	switch (mode) {
 	case 1:
-		enumeration(lineC, field, jimmy);
+		enumeration(field, jimmy);
 		break;
 	case 2:
+		nearestNeighbour(field, jimmy);
 		break;
 	}
 
