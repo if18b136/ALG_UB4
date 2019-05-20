@@ -16,10 +16,10 @@ void nearestNeighbour(AdjMatrix matrix, CoordList list) {
 	cout << "Path: (" << list[start].first << "|" << list[start].second <<") - ";
 
 
-	for (int i = 0; i < matrix.size(); i++) {
+	for (int i = 0; i < matrix.size()-1; i++) {
 		
 		for (town_check = 0; town_check < path.size(); town_check++) {
-			if (path[town_check] = 1 && min_path > matrix[current][town_check]) {
+			if (path[town_check] == 1 && min_path > matrix[current][town_check]) {
 				min_path = matrix[current][town_check];
 				next_town = town_check;
 			}
@@ -28,6 +28,7 @@ void nearestNeighbour(AdjMatrix matrix, CoordList list) {
 		dist += min_path;
 		current = next_town;
 		path[next_town] = 0;
+		min_path = INT_MAX;
 	}
 	dist += matrix[current][start];
 	cout << "(" << list[start].first << "|" << list[start].second << ")" << endl;
