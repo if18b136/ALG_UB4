@@ -1,8 +1,10 @@
-tsp: main.o
-	g++ -o tsp main.o
+export PATH := bin:$(PATH)
 
-main.o: main.cpp
-	g++ -c main.cpp
+tsp: main.o enumeration.o nearestNeighbour.o
+	g++ -o tsp main.o enumeration.o nearestNeighbour.o
+
+main.o: main.cpp enumeration.cpp nearestNeighbour.cpp
+	g++ -c main.cpp enumeration.cpp nearestNeighbour.cpp
 
 clean:
 	rm -f *.o tsp

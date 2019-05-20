@@ -1,19 +1,19 @@
 #include "header.h"
 
 void nearestNeighbour(AdjMatrix matrix, CoordList list) {
-
+	
 	int start = rand() % matrix.size();
 	int current = start;
 	int next_town = 0;
 	int town_check = 0;
-	double min_path = INT_MAX;
+	double min_path = INT8_MAX;
 	double dist = 0;
 	vector<int> path;
 	for (int i = 0; i < matrix.size(); i++) {
 		path.push_back(1);
 	}
 	path[start] = 0;
-	cout << "Path: (" << list[start].first << "|" << list[start].second <<") - ";
+	cout << endl << "Path: (" << list[start].first << "|" << list[start].second <<") - ";
 
 
 	for (int i = 0; i < matrix.size()-1; i++) {
@@ -28,7 +28,7 @@ void nearestNeighbour(AdjMatrix matrix, CoordList list) {
 		dist += min_path;
 		current = next_town;
 		path[next_town] = 0;
-		min_path = INT_MAX;
+		min_path = INT8_MAX;
 	}
 	dist += matrix[current][start];
 	cout << "(" << list[start].first << "|" << list[start].second << ")" << endl;

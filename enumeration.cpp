@@ -12,9 +12,10 @@ int factorial(int n) {
 }
 
 void enumeration(AdjMatrix matrix, CoordList List) {
+
 	vector<int> vertex;
 	vector<int> best_path;
-	double min_path = INT_MAX;
+	double min_path = INT8_MAX;
 	double dist = 0;
 	int pathC = factorial(matrix.size() - 1) / 2;
 	for (int i = 0; i < matrix.size(); i++) {
@@ -30,18 +31,19 @@ void enumeration(AdjMatrix matrix, CoordList List) {
 		min_path = min(min_path, dist);
 
 		if (min_path == dist) {
-			cout << "new min dist: " << dist << endl;
-			cout << "new best path: ";
-			for (int j = 0; j < vertex.size(); j++) {
-				cout << " - " << vertex[j];
-			}
-			cout << endl << endl << endl;
+			
 			best_path = vertex;
 		}
 		dist = 0;
 		next_permutation(vertex.begin() + 1, vertex.end() - 1);
 	}
-
+	
+	cout << endl << "Path: ";
+	for (int j = 0; j < best_path.size() - 1; j++) {
+		cout << "(" << List[best_path[j]].first << "|" << List[best_path[j]].second << ") - ";
+	}
+	cout << "(" << List[best_path[0]].first << "|" << List[best_path[0]].second << ")" << endl;
+	cout << "Total Distance: " << min_path << endl;
 
 	
 }
