@@ -17,7 +17,7 @@ void enumeration(AdjMatrix matrix, CoordList List) {
 	vector<int> best_path;
 	double min_path = INT8_MAX;
 	double dist = 0;
-	int pathC = factorial(matrix.size() - 1) / 2;
+	int pathC = factorial(matrix.size() - 1);
 	for (int i = 0; i < matrix.size(); i++) {
 		vertex.push_back(i);
 	}
