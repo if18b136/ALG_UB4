@@ -4,7 +4,6 @@ Bei diesem Beispiel soll die Performance(CPU-Zeit) des Travelling Salesman Probl
 Nearest Neighbour wählt jeden Durchgang einen zufälligen Startknoten und geht von diesem aus immer den kürzesten verfügbaren Weg zu einem noch nicht besuchten Knoten. Hierdurch entsteht ein **Aufwand** von **O( n^2 )**
 
 ## Zeit-/Performance-vergleich Enum vs. NN
-in Millisekunden (außer anders angeschrieben)
 |  |Enum|Neirest Neighbour|
 |--|--|--|
 |5|0.150714|0.112573|  
@@ -13,6 +12,8 @@ in Millisekunden (außer anders angeschrieben)
 |12|8452.54|0.135192|
 |13|106185|0.130578|
 |127|1.21 * 10 ^ 198 Jahre|1.80083|
+
+in Millisekunden (außer anders angeschrieben)
 
 ## Abweichung des NN-Weges vom Optimum
 |  |Enum|Neirest Neighbour|
